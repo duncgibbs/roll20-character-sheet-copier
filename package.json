@@ -1,0 +1,34 @@
+{
+  "name": "roll20-character-sheet-copier",
+  "version": "1.0.0",
+  "description": "Puppteer Scraper to Copy Roll20 Character Sheets",
+  "main": "copier.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "copy": "tsc; node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duncgibbs/roll20-character-sheet-copier.git"
+  },
+  "author": "Duncan Gibbs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duncgibbs/roll20-character-sheet-copier/issues"
+  },
+  "homepage": "https://github.com/duncgibbs/roll20-character-sheet-copier#readme",
+  "devDependencies": {
+    "@types/imagemagick": "0.0.30",
+    "@types/node": "^14.6.2",
+    "@types/puppeteer": "^3.0.1",
+    "dotenv": "^8.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "imagemagick": "^0.1.3",
+    "puppeteer": "^5.2.1"
+  }
+}
