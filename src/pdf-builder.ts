@@ -10,11 +10,20 @@ export const bundleCharacterSheets = async () => {
     });
     for await (const character of await fs.promises.readdir('./character-sheets')) {
         if (character !== 'pdfs') {
-            im.convert([`./character-sheets/${character}/*.png`, `./character-sheets/pdfs/${character}.pdf`], (err) => {
-                if (err) {
-                    console.log(`Error converting ${character}!`);
-                    console.log(err);
-                }
+            await new Promise((resolve, reject) => {
+                im.convert([
+                    `./character-sheets/${character}/*.png`,
+                    `./character-sheets/pdfs/${character}.pdf`
+                ], (err) => {
+                    if (err) {
+                        console.log(`Error converting ${character}!`);
+                        console.log(err);
+                        reject(err);
+                    } else {
+                        console.log(`\tCreated ${character}.pdf`);
+                        resolve();
+                    }
+                });
             });
         }
     }

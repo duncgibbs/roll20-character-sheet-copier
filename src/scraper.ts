@@ -48,7 +48,7 @@ export const getCharacterSheets = async () => {
 };
 
 const login = async (page: puppeteer.Page) => {
-    console.log('Logging on...');
+    console.log('\tLogging on...');
     await page.goto('https://roll20.net/');
 
     await page.waitForSelector('ul.navbar-nav.navbar-notifications');
@@ -89,7 +89,7 @@ const handleCharacterPopup = async (target: puppeteer.Target) => {
                     return await (await elem?.getProperty('value'))?.jsonValue() as string;
                 });
 
-                console.log(`Grabbing character sheets for: ${character}`);
+                console.log(`\tGrabbing character sheets for: ${character}`);
 
                 await fs.promises.mkdir(`./character-sheets/${character}`).catch(err => {
                     if (err.code !== 'EEXIST') {
@@ -115,7 +115,7 @@ const handleCharacterPopup = async (target: puppeteer.Target) => {
                 fullPage: true,
                 path: `./character-sheets/${character}/${pageNum}.png`
             });
-            console.log(`\tPage ${pageNum}`);
+            console.log(`\t\tPage ${pageNum}`);
         }
 
         await characterSheetPage.close();
