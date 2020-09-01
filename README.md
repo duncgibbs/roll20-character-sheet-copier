@@ -26,3 +26,5 @@ You'll also need Google Drive credentials. [Follow the instructions here.](https
 # Running
 
 Once everything is set up, `npm run copy` should scrape the images, convert them to PDFs, and then upload them to Google Drive.
+
+The first time you run the script, it will need your permission to access Google Drive. Follow the instructions on `stdout` and a token.json file will be created.
